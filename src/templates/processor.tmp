@@ -1,5 +1,6 @@
 from collections import Iterable
 from .base import Processor
+from collectors.base import Collector
 
 
 class $name(Processor):
@@ -8,7 +9,7 @@ class $name(Processor):
     def __init__(self, config):
         super().__init__(config)
 
-    def process(self, collector: Plugin) -> Iterable:
+    def process(self, collector: Collector) -> Iterable:
         return []
 
     def write(self, words: Iterable):

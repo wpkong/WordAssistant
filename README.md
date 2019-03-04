@@ -45,7 +45,7 @@ python manage.py new processor [name]  # 从模板新建一个处理器
 - china_daily.py  China Daily英文网采集器
 - the_washington_post.py  The Washington Post采集器
 
-#### processors
+### processors
 数据处理器,将单词输入到单词APP或者其他地方,目前仅支持墨墨背单词
 
 - base.py   处理器基类,所有处理器都要继承
@@ -97,11 +97,25 @@ PROCESS_CONFIG = (
 ```
 
 具体的配置如下：
+
 采集器：
 - [CNN](docs/cnn_config.md)
 - [BBC](docs/bbc_config.md)
 - [中国日报](docs/china_daily_config.md)
 - [华盛顿邮报](docs/the_washington_post_config.md)
+
+注：所有采集器均可在config中配置代理
+```python
+    "class": "...",
+    "config": {
+        ...
+        "proxies": {
+            "http": "socks5://127.0.0.1:1080",
+            'https': 'socks5://127.0.0.1:1080'
+        }
+        ...
+    }
+```
 
 过滤器：
 - [过滤器配置](docs/filter_config.md)
@@ -109,5 +123,12 @@ PROCESS_CONFIG = (
 处理器：
 - [墨墨背单词](docs/momo_config.md)
 
-#### ChinaDaily 中国日报
-- column: [home global xismoments bilingual popular china business opinion world tech culture life travel sports audio video photo cheetah spec]
+
+## 编写说明
+- [采集器编写说明](docs/collector_write.md)
+
+- [处理器编写说明](docs/processor_write.md)
+
+- [过滤器编写说明](docs/filter_write.md)
+
+注：以上三个都可以通过编写类变量 indispensable = [] 类简化config中必要的关键字检查，如若 indispensable = ["key", "abc"]， 则config必须包含键为key和abc的配置

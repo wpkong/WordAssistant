@@ -2,6 +2,12 @@
 
 > 从CNN, BBC, 华盛顿邮报等网上采集文章,转换成单词输送到单词APP. 目前仅支持墨墨
 
+[使用方法](#使用方法)
+
+[项目结构](#项目结构)
+
+[配置说明](#配置说明)
+
 ## 使用方法
 ```
 python manage.py run    # 运行项目
@@ -66,9 +72,37 @@ python manage.py new processor [name]  # 从模板新建一个处理器
 ## 配置说明
 在**config.py**文件中进行修改，且配置应为PROCESS_CONFIG变量，类型为list、set或者tuple等可迭代列表。
 
-配置单元为dict对象，其中必须包含processor和collector关键词，filter关键词可选
+配置单元为dict对象，其中必须包含processor和collector关键词，filter关键词可选。
 
+processor、collector、filter的值应为dict，且包含关键字class以指向具体的类，plugin可选，但具体看响应的类的规定。
 
+即配置应满足
+```python
+PROCESS_CONFIG = (
+    {
+        "processor": {
+            "class": "",
+            "config": {}
+        },
+        "collector": {
+            "class": "",
+            "config": {}
+        },
+        "filter": {
+            "class": "",
+            "config": {}
+        },
+    },
+)
+```
+
+具体的配置如下：
+- [CNN](docs/cnn_config.md)
+- [BBC](docs/bbc_config.md)
+- [中国日报](docs/china_daily_config.md)
+- [华盛顿邮报](docs/the_washington_post_config.md)
+- [过滤器配置](docs/filter_config.md)
+- [墨墨背单词](docs/momo_config.md)
 
 #### ChinaDaily 中国日报
 - column: [home global xismoments bilingual popular china business opinion world tech culture life travel sports audio video photo cheetah spec]

@@ -1,0 +1,6 @@
+js2py
+requests
+bs4
+lxml
+nltk
+coloredlogs

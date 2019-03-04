@@ -1,0 +1,12 @@
+from collections import Generator
+from .base import Collector
+
+
+class $name(Collector):
+    indispensable = []
+
+    def __init__(self, config):
+        super().__init__(config)
+
+    def generate(self) -> Generator:
+        yield None

@@ -1,0 +1,10 @@
+from collections import Iterable
+from .base import Filter
+
+
+class $name(Filter):
+    def __init__(self):
+        pass
+
+    def filter(self, words: Iterable) -> Iterable:
+        return words

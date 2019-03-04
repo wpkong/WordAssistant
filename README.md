@@ -24,6 +24,7 @@ python manage.py new filter [name]  # 从模板新建一个过滤器
 
 python manage.py new processor [name]  # 从模板新建一个处理器
 ```
+可以配合celery等调度工具运行。
 
 ## 项目结构
 ### /

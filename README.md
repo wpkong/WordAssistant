@@ -20,23 +20,23 @@ python manage.py new processor [name]  # 从模板新建一个处理器
 ```
 
 ## 项目结构
-#### /
+### /
 - manage.py  管理文件，无需更改
 - config.py  配置文件
 
-#### core
+### core
 核心代码
 
 - check_config.py  检查配置文件是否满足indispensable变量规定的关键词
 - controller.py  控制器，活动在程序的生命周期
 
 
-#### data
+### data
 静态数据文件夹
 - simple-words: 简单词,不会被采集到
 - 其他转储文件
 
-#### collectors
+### collectors
 采集器以插件形式编写
 
 - base.py:  采集器基类,所有采集器必须继承
@@ -52,20 +52,20 @@ python manage.py new processor [name]  # 从模板新建一个处理器
 - momo.py   墨墨背单词处理器
 
 
-#### filters
+### filters
 单词过滤器，过滤不符合条件的单词
 
 - base.py  过滤器基类，所有过滤器必须继承
 - file_based_filter.py  基于文本文件的过滤器，须在配置文件中指明"file"，文件内一个单词占一行
 - simple_word_filter.py  简单单词过滤器，file_based_filter的简单实现，无须指明文件
 
-#### utils
+### utils
 常用工具
 
 - parseArticle.js    墨墨背单词的网页文章分析器,利用它来分词
 
 
-#### templates
+### templates
 模板文件
 
 
@@ -97,11 +97,16 @@ PROCESS_CONFIG = (
 ```
 
 具体的配置如下：
+采集器：
 - [CNN](docs/cnn_config.md)
 - [BBC](docs/bbc_config.md)
 - [中国日报](docs/china_daily_config.md)
 - [华盛顿邮报](docs/the_washington_post_config.md)
+
+过滤器：
 - [过滤器配置](docs/filter_config.md)
+
+处理器：
 - [墨墨背单词](docs/momo_config.md)
 
 #### ChinaDaily 中国日报

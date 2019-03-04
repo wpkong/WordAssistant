@@ -9,6 +9,12 @@
 [配置说明](#配置说明)
 
 ## 使用方法
+初始化，必须先下载nltk对应的Wordnet语料库
+```
+import nltk
+nltk.download("wordnet")
+```
+
 ```
 python manage.py run    # 运行项目
 
